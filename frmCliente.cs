@@ -20,21 +20,28 @@ namespace pryArlaEPR
 
         private void cmdCargar_Click(object sender, EventArgs e)
         {
+            
+            //variable utilizadas
             int codigo;
             string cliente, mensaje;
             bool bandera = false;
             codigo = Convert.ToInt32(nupCliente.Text);
             cliente = txtNombreCliente.Text;
 
+            //si estos campos estan distinto de vacio que siga el proceso 
             if (codigo != 0 && cliente != "")
             {
                 mensaje = cliente + "," + codigo;
                 char separador = Convert.ToChar(",");
+                //lectura del archivo 
+                //distinto a final de archivo 
                 StreamReader srClientes = new StreamReader("./Clientes.txt");
                 while (!srClientes.EndOfStream)
                 {
                     string[] vecClientes = srClientes.ReadLine().Split(separador);
                     int codigoVec = Convert.ToInt32(vecClientes[1]);
+
+                    //confirmo si el numero no se repita a partir del vector y su posiciòn
                     if (codigo == codigoVec)
                     {
                         bandera = true;
@@ -44,9 +51,9 @@ namespace pryArlaEPR
                     }
                 }
                 srClientes.Close();
-                using (StreamWriter swCliente = File.AppendText("./Clientes.txt"))
-                {
-                    if (bandera == false)
+                //si la bandera es falsa q se cree el archivo 
+                StreamWriter swCliente = File.AppendText("./Clientes.txt");
+                if (bandera == false)
                     {
                         swCliente.WriteLine(mensaje);
                         MessageBox.Show("Carga Realizada");
@@ -54,11 +61,10 @@ namespace pryArlaEPR
                         txtNombreCliente.Text = "";
                         nupCliente.Focus();
                     }
-                  
-                    swCliente.Close();
-                }
+                swCliente.Close();
+                
+                
 
-             
             }
             else
             {

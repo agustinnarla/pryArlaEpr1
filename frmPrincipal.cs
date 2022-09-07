@@ -34,5 +34,10 @@ namespace pryArlaEPR
             frmVentas frmVentas = new frmVentas();
             frmVentas.ShowDialog();
         }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.mrcDatos = new System.Windows.Forms.GroupBox();
+            this.lstVendedor = new System.Windows.Forms.ComboBox();
             this.mtxtMonto = new System.Windows.Forms.MaskedTextBox();
             this.lblVendedor = new System.Windows.Forms.Label();
             this.lblMonto = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.cmdCargar = new System.Windows.Forms.Button();
             this.lblNumeroFactura = new System.Windows.Forms.Label();
             this.lblFactura = new System.Windows.Forms.Label();
-            this.lstVendedor = new System.Windows.Forms.ComboBox();
             this.mrcDatos.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,9 +62,19 @@
             this.mrcDatos.Controls.Add(this.lblFactura);
             this.mrcDatos.Location = new System.Drawing.Point(12, 12);
             this.mrcDatos.Name = "mrcDatos";
-            this.mrcDatos.Size = new System.Drawing.Size(356, 247);
+            this.mrcDatos.Size = new System.Drawing.Size(356, 233);
             this.mrcDatos.TabIndex = 6;
             this.mrcDatos.TabStop = false;
+            // 
+            // lstVendedor
+            // 
+            this.lstVendedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.lstVendedor.FormattingEnabled = true;
+            this.lstVendedor.Location = new System.Drawing.Point(127, 144);
+            this.lstVendedor.Name = "lstVendedor";
+            this.lstVendedor.Size = new System.Drawing.Size(83, 21);
+            this.lstVendedor.TabIndex = 17;
+            this.lstVendedor.SelectedIndexChanged += new System.EventHandler(this.lstVendedor_SelectedIndexChanged);
             // 
             // mtxtMonto
             // 
@@ -100,12 +110,13 @@
             this.lstCliente.Name = "lstCliente";
             this.lstCliente.Size = new System.Drawing.Size(83, 21);
             this.lstCliente.TabIndex = 12;
+            this.lstCliente.SelectedIndexChanged += new System.EventHandler(this.lstCliente_SelectedIndexChanged);
             // 
             // ftpFecha
             // 
             this.ftpFecha.Location = new System.Drawing.Point(127, 83);
             this.ftpFecha.Name = "ftpFecha";
-            this.ftpFecha.Size = new System.Drawing.Size(223, 20);
+            this.ftpFecha.Size = new System.Drawing.Size(211, 20);
             this.ftpFecha.TabIndex = 11;
             // 
             // mtxtNumeroFactura
@@ -124,6 +135,7 @@
             this.lstFactura.Name = "lstFactura";
             this.lstFactura.Size = new System.Drawing.Size(83, 21);
             this.lstFactura.TabIndex = 9;
+            this.lstFactura.SelectedIndexChanged += new System.EventHandler(this.lstFactura_SelectedIndexChanged);
             // 
             // lblFecha
             // 
@@ -171,23 +183,15 @@
             this.lblFactura.TabIndex = 0;
             this.lblFactura.Text = "Factura";
             // 
-            // lstVendedor
-            // 
-            this.lstVendedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.lstVendedor.FormattingEnabled = true;
-            this.lstVendedor.Location = new System.Drawing.Point(127, 144);
-            this.lstVendedor.Name = "lstVendedor";
-            this.lstVendedor.Size = new System.Drawing.Size(83, 21);
-            this.lstVendedor.TabIndex = 17;
-            // 
             // frmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 264);
+            this.ClientSize = new System.Drawing.Size(372, 250);
             this.Controls.Add(this.mrcDatos);
             this.Name = "frmVentas";
             this.Text = "Ventas";
+            this.Load += new System.EventHandler(this.frmVentas_Load);
             this.mrcDatos.ResumeLayout(false);
             this.mrcDatos.PerformLayout();
             this.ResumeLayout(false);

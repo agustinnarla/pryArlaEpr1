@@ -26,12 +26,14 @@ namespace pryArlaEPR
 
         private void nupComision_ValueChanged(object sender, EventArgs e)
         {
+            //le doy dos valores como maximo y como minimo 
             nupComision.Maximum = 0;
             nupComision.Minimum = -1;
         }
 
         private void cmdCargar_Click(object sender, EventArgs e)
         {
+            //declaraciones de variables 
             int codigo, activo, comision;
             string vendedor, mensaje;
             bool bandera = false;
@@ -40,15 +42,20 @@ namespace pryArlaEPR
             activo = Convert.ToInt32(nupActivo.Text);
             comision = Convert.ToInt32(nupComision.Text);
 
+            //confirmamos que no este en vacio 
             if (codigo != 0 && vendedor != "")
             {
+                //declaracion para que sea mas bonito 
                 mensaje = vendedor + "," + codigo + "," + activo + "," + comision;
                 char separador = Convert.ToChar(",");
+                //leemos el texto
                 StreamReader srVendedores = new StreamReader("./Vendedores.txt");
+                //distinto de final a archivo 
                 while (!srVendedores.EndOfStream)
                 {
                     string[] vecClientes = srVendedores.ReadLine().Split(separador);
                     int codigoVec = Convert.ToInt32(vecClientes[1]);
+                    //ver si no se repite el codigo si es asi que pase lo siguiente 
                     if (codigo == codigoVec)
                     {
                         bandera = true;
@@ -60,8 +67,10 @@ namespace pryArlaEPR
                     }
                 }
                 srVendedores.Close();
-                using (StreamWriter swVendedores = File.AppendText("./Vendedores.txt"))
+                
+                StreamWriter swVendedores = File.AppendText("./Vendedores.txt");
                 {
+                    //creacion de la carga y limpieza 
                     if (bandera == false)
                     {
                         swVendedores.WriteLine(mensaje);
@@ -75,7 +84,6 @@ namespace pryArlaEPR
 
                     swVendedores.Close();
                 }
-
             }
             else
             {

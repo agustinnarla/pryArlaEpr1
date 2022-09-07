@@ -23,7 +23,7 @@ namespace pryArlaEPR
             int numeroFactura, numeroVendedor, monto, cliente;
             string mensaje, factura, fecha;
 
-
+            //declaracion de variable 
             bool bandera = false;
             numeroFactura = Convert.ToInt32(mtxtMonto.Text);
             fecha = ftpFecha.Text;
@@ -38,6 +38,8 @@ namespace pryArlaEPR
                 mensaje = factura + "," + numeroFactura + "," + fecha + "," + cliente + "," + numeroVendedor + "," + monto;
                 char separador = Convert.ToChar(",");
                 StreamReader srVentas = new StreamReader("./Ventas.txt");
+
+                //mientras no sea final de archivo 
                 while (!srVentas.EndOfStream)
                 {
                     string[] vecClientes = srVentas.ReadLine().Split(separador);
@@ -51,7 +53,8 @@ namespace pryArlaEPR
                     }
                 }
                 srVentas.Close();
-                using (StreamWriter swCliente = File.AppendText("./Clientes.txt"))
+                //Crear y copiar 
+                StreamWriter swCliente = File.AppendText("./Clientes.txt");
                 {
                     if (bandera == false)
                     {
@@ -65,10 +68,8 @@ namespace pryArlaEPR
                         lstCliente.Text = "";
                         lstFactura.Focus();
                     }
-
                     swCliente.Close();
                 }
-
 
             }
             else
@@ -76,6 +77,27 @@ namespace pryArlaEPR
                 MessageBox.Show("Complete con los datos, por favor ");
 
             }
+        }
+
+        private void frmVentas_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void lstFactura_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Numero de clientes que ya registramos anteriormente y no se van a poder crear ahi 
+        }
+
+        private void lstVendedor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Numero de vendedor que ya registramos anteriormente y no se van a poder crear ahi 
+
         }
     }
 }

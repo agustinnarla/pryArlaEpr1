@@ -30,10 +30,10 @@
         {
             this.tabMenu = new System.Windows.Forms.TabControl();
             this.tabRegistrar = new System.Windows.Forms.TabPage();
-            this.tabConsultar = new System.Windows.Forms.TabPage();
-            this.cmdCliente = new System.Windows.Forms.Button();
-            this.cmdVendedor = new System.Windows.Forms.Button();
             this.Ventas = new System.Windows.Forms.Button();
+            this.cmdVendedor = new System.Windows.Forms.Button();
+            this.cmdCliente = new System.Windows.Forms.Button();
+            this.tabConsultar = new System.Windows.Forms.TabPage();
             this.tabMenu.SuspendLayout();
             this.tabRegistrar.SuspendLayout();
             this.SuspendLayout();
@@ -61,25 +61,15 @@
             this.tabRegistrar.Text = "Registrar";
             this.tabRegistrar.UseVisualStyleBackColor = true;
             // 
-            // tabConsultar
+            // Ventas
             // 
-            this.tabConsultar.Location = new System.Drawing.Point(4, 22);
-            this.tabConsultar.Name = "tabConsultar";
-            this.tabConsultar.Padding = new System.Windows.Forms.Padding(3);
-            this.tabConsultar.Size = new System.Drawing.Size(158, 236);
-            this.tabConsultar.TabIndex = 1;
-            this.tabConsultar.Text = "Consultar";
-            this.tabConsultar.UseVisualStyleBackColor = true;
-            // 
-            // cmdCliente
-            // 
-            this.cmdCliente.Location = new System.Drawing.Point(32, 12);
-            this.cmdCliente.Name = "cmdCliente";
-            this.cmdCliente.Size = new System.Drawing.Size(94, 46);
-            this.cmdCliente.TabIndex = 0;
-            this.cmdCliente.Text = "Cliente";
-            this.cmdCliente.UseVisualStyleBackColor = true;
-            this.cmdCliente.Click += new System.EventHandler(this.cmdCliente_Click);
+            this.Ventas.Location = new System.Drawing.Point(32, 136);
+            this.Ventas.Name = "Ventas";
+            this.Ventas.Size = new System.Drawing.Size(94, 46);
+            this.Ventas.TabIndex = 2;
+            this.Ventas.Text = "Ventas";
+            this.Ventas.UseVisualStyleBackColor = true;
+            this.Ventas.Click += new System.EventHandler(this.Ventas_Click);
             // 
             // cmdVendedor
             // 
@@ -91,15 +81,25 @@
             this.cmdVendedor.UseVisualStyleBackColor = true;
             this.cmdVendedor.Click += new System.EventHandler(this.cmdVendedor_Click);
             // 
-            // Ventas
+            // cmdCliente
             // 
-            this.Ventas.Location = new System.Drawing.Point(32, 136);
-            this.Ventas.Name = "Ventas";
-            this.Ventas.Size = new System.Drawing.Size(94, 46);
-            this.Ventas.TabIndex = 2;
-            this.Ventas.Text = "Ventas";
-            this.Ventas.UseVisualStyleBackColor = true;
-            this.Ventas.Click += new System.EventHandler(this.Ventas_Click);
+            this.cmdCliente.Location = new System.Drawing.Point(32, 12);
+            this.cmdCliente.Name = "cmdCliente";
+            this.cmdCliente.Size = new System.Drawing.Size(94, 46);
+            this.cmdCliente.TabIndex = 0;
+            this.cmdCliente.Text = "Cliente";
+            this.cmdCliente.UseVisualStyleBackColor = true;
+            this.cmdCliente.Click += new System.EventHandler(this.cmdCliente_Click);
+            // 
+            // tabConsultar
+            // 
+            this.tabConsultar.Location = new System.Drawing.Point(4, 22);
+            this.tabConsultar.Name = "tabConsultar";
+            this.tabConsultar.Padding = new System.Windows.Forms.Padding(3);
+            this.tabConsultar.Size = new System.Drawing.Size(158, 200);
+            this.tabConsultar.TabIndex = 1;
+            this.tabConsultar.Text = "Consultar";
+            this.tabConsultar.UseVisualStyleBackColor = true;
             // 
             // frmPrincipal
             // 
@@ -110,6 +110,7 @@
             this.Controls.Add(this.tabMenu);
             this.Name = "frmPrincipal";
             this.Text = "VenKaktus ";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.tabMenu.ResumeLayout(false);
             this.tabRegistrar.ResumeLayout(false);
             this.ResumeLayout(false);
