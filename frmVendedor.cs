@@ -41,6 +41,8 @@ namespace pryArlaEPR
             vendedor = txtNombreVendedor.Text;
             activo = Convert.ToInt32(nupActivo.Text);
             comision = Convert.ToInt32(nupComision.Text);
+            StreamWriter swVendedores = new StreamWriter("./Vendedores.txt", true);
+            swVendedores.Close();
 
             //confirmamos que no este en vacio 
             if (codigo != 0 && vendedor != "")
@@ -53,8 +55,8 @@ namespace pryArlaEPR
                 //distinto de final a archivo 
                 while (!srVendedores.EndOfStream)
                 {
-                    string[] vecClientes = srVendedores.ReadLine().Split(separador);
-                    int codigoVec = Convert.ToInt32(vecClientes[1]);
+                    string[] vecVendedores = srVendedores.ReadLine().Split(separador);
+                    int codigoVec = Convert.ToInt32(vecVendedores[1]);
                     //ver si no se repite el codigo si es asi que pase lo siguiente 
                     if (codigo == codigoVec)
                     {
@@ -68,12 +70,12 @@ namespace pryArlaEPR
                 }
                 srVendedores.Close();
                 
-                StreamWriter swVendedores = File.AppendText("./Vendedores.txt");
+                StreamWriter swVendedores2 = File.AppendText("./Vendedores.txt");
                 {
                     //creacion de la carga y limpieza 
                     if (bandera == false)
                     {
-                        swVendedores.WriteLine(mensaje);
+                        swVendedores2.WriteLine(mensaje);
                         MessageBox.Show("Carga Realizada");
                         txtNombreVendedor.Text = "";
                         mtxtVendedor.Text = "";
@@ -82,7 +84,7 @@ namespace pryArlaEPR
                         mtxtVendedor.Focus();
                     }
 
-                    swVendedores.Close();
+                    swVendedores2.Close();
                 }
             }
             else

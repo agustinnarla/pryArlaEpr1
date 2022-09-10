@@ -131,6 +131,14 @@
             // 
             this.lstFactura.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.lstFactura.FormattingEnabled = true;
+            this.lstFactura.Items.AddRange(new object[] {
+            "Factura A",
+            "Factura B",
+            "Factura C",
+            "Factura M",
+            "Factura E",
+            "Factura T",
+            ""});
             this.lstFactura.Location = new System.Drawing.Point(127, 22);
             this.lstFactura.Name = "lstFactura";
             this.lstFactura.Size = new System.Drawing.Size(83, 21);
@@ -208,11 +216,11 @@
         private System.Windows.Forms.Label lblFactura;
         private System.Windows.Forms.ComboBox lstFactura;
         private System.Windows.Forms.MaskedTextBox mtxtNumeroFactura;
-        private System.Windows.Forms.ComboBox lstCliente;
         private System.Windows.Forms.DateTimePicker ftpFecha;
         private System.Windows.Forms.MaskedTextBox mtxtMonto;
         private System.Windows.Forms.Label lblVendedor;
         private System.Windows.Forms.Label lblMonto;
         private System.Windows.Forms.ComboBox lstVendedor;
+        public System.Windows.Forms.ComboBox lstCliente;
     }
 }

@@ -16,6 +16,7 @@ namespace pryArlaEPR
         public frmVentas()
         {
             InitializeComponent();
+
         }
 
         private void cmdCargar_Click(object sender, EventArgs e)
@@ -32,6 +33,10 @@ namespace pryArlaEPR
             monto = Convert.ToInt32(mtxtMonto.Text);
             factura = lstFactura.Text;
             cliente = Convert.ToInt32(lstCliente.Text);
+           
+            //creamos archivo 
+            StreamWriter swVentas = new StreamWriter("./Ventas.txt",true);
+            swVentas.Close();
 
             if (numeroFactura != 0 && numeroVendedor != 0 && fecha != "" && numeroFactura != 0 && monto != 0 && factura != "")
             {
@@ -42,8 +47,8 @@ namespace pryArlaEPR
                 //mientras no sea final de archivo 
                 while (!srVentas.EndOfStream)
                 {
-                    string[] vecClientes = srVentas.ReadLine().Split(separador);
-                    int codigoVec = Convert.ToInt32(vecClientes[1]);
+                    string[] vecVentas = srVentas.ReadLine().Split(separador);
+                    int codigoVec = Convert.ToInt32(vecVentas[1]);
                     if (numeroFactura == codigoVec)
                     {
                         bandera = true;
@@ -54,11 +59,12 @@ namespace pryArlaEPR
                 }
                 srVentas.Close();
                 //Crear y copiar 
-                StreamWriter swCliente = File.AppendText("./Clientes.txt");
+                //evitar que se sobrescriba 
+                StreamWriter swVentas2 = File.AppendText("./Ventas.txt");
                 {
                     if (bandera == false)
                     {
-                        swCliente.WriteLine(mensaje);
+                        swVentas2.WriteLine(mensaje);
                         MessageBox.Show("Carga Realizada");
                         mtxtMonto.Text = "";
                         lstVendedor.Text = "";
@@ -68,7 +74,7 @@ namespace pryArlaEPR
                         lstCliente.Text = "";
                         lstFactura.Focus();
                     }
-                    swCliente.Close();
+                    swVentas2.Close();
                 }
 
             }
@@ -81,7 +87,11 @@ namespace pryArlaEPR
 
         private void frmVentas_Load(object sender, EventArgs e)
         {
-            
+            StreamReader srCliente = new StreamReader("./Clientes.txt");
+            char separador = Convert.ToChar(",");
+            string[] vecCliente = srCliente.ReadLine().Split(separador);
+            int codigo = Convert.ToInt32(vecCliente[1]);
+           
         }
 
         private void lstFactura_SelectedIndexChanged(object sender, EventArgs e)
@@ -92,6 +102,7 @@ namespace pryArlaEPR
         private void lstCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Numero de clientes que ya registramos anteriormente y no se van a poder crear ahi 
+            
         }
 
         private void lstVendedor_SelectedIndexChanged(object sender, EventArgs e)

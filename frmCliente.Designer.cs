@@ -112,9 +112,9 @@
 
         private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.Label lblNombreCliente;
-        private System.Windows.Forms.NumericUpDown nupCliente;
         private System.Windows.Forms.TextBox txtNombreCliente;
         private System.Windows.Forms.GroupBox mrcDatos;
         private System.Windows.Forms.Button cmdCargar;
+        public System.Windows.Forms.NumericUpDown nupCliente;
     }
 }

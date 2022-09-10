@@ -27,15 +27,16 @@ namespace pryArlaEPR
             bool bandera = false;
             codigo = Convert.ToInt32(nupCliente.Text);
             cliente = txtNombreCliente.Text;
-
+            StreamWriter swCliente = new StreamWriter("./Clientes.txt", true);
+            swCliente.Close();
             //si estos campos estan distinto de vacio que siga el proceso 
             if (codigo != 0 && cliente != "")
             {
                 mensaje = cliente + "," + codigo;
                 char separador = Convert.ToChar(",");
                 //lectura del archivo 
-                //distinto a final de archivo 
                 StreamReader srClientes = new StreamReader("./Clientes.txt");
+                //distinto a final de archivo 
                 while (!srClientes.EndOfStream)
                 {
                     string[] vecClientes = srClientes.ReadLine().Split(separador);
@@ -52,30 +53,23 @@ namespace pryArlaEPR
                 }
                 srClientes.Close();
                 //si la bandera es falsa q se cree el archivo 
-                StreamWriter swCliente = File.AppendText("./Clientes.txt");
+                StreamWriter swCliente2 = File.AppendText("./Clientes.txt");
                 if (bandera == false)
                     {
-                        swCliente.WriteLine(mensaje);
+                        swCliente2.WriteLine(mensaje);
                         MessageBox.Show("Carga Realizada");
                         nupCliente.Value = 0;
                         txtNombreCliente.Text = "";
                         nupCliente.Focus();
                     }
-                swCliente.Close();
-                
-                
-
+                swCliente2.Close();
+       
             }
             else
             {
                 MessageBox.Show("Complete con los datos, por favor ");
 
             }
-
-
-
-
-
 
         }
     }
