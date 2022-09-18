@@ -40,7 +40,8 @@ namespace pryArlaEPR
                 while (!srClientes.EndOfStream)
                 {
                     string[] vecClientes = srClientes.ReadLine().Split(separador);
-                    int codigoVec = Convert.ToInt32(vecClientes[1]);
+                        string vecID = vecClientes[0];
+                        codigoId = Convert.ToInt32(vecID) + 1;
 
                     //confirmo si el numero no se repita a partir del vector y su posiciòn
                     if (codigo == codigoVec)
@@ -53,14 +54,17 @@ namespace pryArlaEPR
                 }
                 srClientes.Close();
                 //si la bandera es falsa q se cree el archivo 
-                StreamWriter swCliente2 = File.AppendText("./Clientes.txt");
-                if (bandera == false)
-                    {
-                        swCliente2.WriteLine(mensaje);
+                    StreamWriter swCliente = File.AppendText("./Clientes.txt");
+
+                    swCliente.WriteLine(mensaje);
                         MessageBox.Show("Carga Realizada");
                         nupCliente.Value = 0;
                         txtNombreCliente.Text = "";
-                        nupCliente.Focus();
+
+                    swCliente.Close();
+
+
+                }
                     }
                 swCliente2.Close();
        
