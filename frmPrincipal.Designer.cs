@@ -30,12 +30,16 @@
         {
             this.tabMenu = new System.Windows.Forms.TabControl();
             this.tabRegistrar = new System.Windows.Forms.TabPage();
-            this.Ventas = new System.Windows.Forms.Button();
+            this.cmdVentas = new System.Windows.Forms.Button();
             this.cmdVendedor = new System.Windows.Forms.Button();
             this.cmdCliente = new System.Windows.Forms.Button();
             this.tabConsultar = new System.Windows.Forms.TabPage();
+            this.cmdVentasConsultas = new System.Windows.Forms.Button();
+            this.cmdVendedorConsulta = new System.Windows.Forms.Button();
+            this.cmdClienteConsulta = new System.Windows.Forms.Button();
             this.tabMenu.SuspendLayout();
             this.tabRegistrar.SuspendLayout();
+            this.tabConsultar.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabMenu
@@ -50,7 +54,7 @@
             // 
             // tabRegistrar
             // 
-            this.tabRegistrar.Controls.Add(this.Ventas);
+            this.tabRegistrar.Controls.Add(this.cmdVentas);
             this.tabRegistrar.Controls.Add(this.cmdVendedor);
             this.tabRegistrar.Controls.Add(this.cmdCliente);
             this.tabRegistrar.Location = new System.Drawing.Point(4, 22);
@@ -61,15 +65,15 @@
             this.tabRegistrar.Text = "Registrar";
             this.tabRegistrar.UseVisualStyleBackColor = true;
             // 
-            // Ventas
+            // cmdVentas
             // 
-            this.Ventas.Location = new System.Drawing.Point(32, 136);
-            this.Ventas.Name = "Ventas";
-            this.Ventas.Size = new System.Drawing.Size(94, 46);
-            this.Ventas.TabIndex = 2;
-            this.Ventas.Text = "Ventas";
-            this.Ventas.UseVisualStyleBackColor = true;
-            this.Ventas.Click += new System.EventHandler(this.Ventas_Click);
+            this.cmdVentas.Location = new System.Drawing.Point(32, 136);
+            this.cmdVentas.Name = "cmdVentas";
+            this.cmdVentas.Size = new System.Drawing.Size(94, 46);
+            this.cmdVentas.TabIndex = 2;
+            this.cmdVentas.Text = "Ventas";
+            this.cmdVentas.UseVisualStyleBackColor = true;
+            this.cmdVentas.Click += new System.EventHandler(this.Ventas_Click);
             // 
             // cmdVendedor
             // 
@@ -93,6 +97,9 @@
             // 
             // tabConsultar
             // 
+            this.tabConsultar.Controls.Add(this.cmdVentasConsultas);
+            this.tabConsultar.Controls.Add(this.cmdVendedorConsulta);
+            this.tabConsultar.Controls.Add(this.cmdClienteConsulta);
             this.tabConsultar.Location = new System.Drawing.Point(4, 22);
             this.tabConsultar.Name = "tabConsultar";
             this.tabConsultar.Padding = new System.Windows.Forms.Padding(3);
@@ -100,6 +107,34 @@
             this.tabConsultar.TabIndex = 1;
             this.tabConsultar.Text = "Consultar";
             this.tabConsultar.UseVisualStyleBackColor = true;
+            // 
+            // cmdVentasConsultas
+            // 
+            this.cmdVentasConsultas.Location = new System.Drawing.Point(32, 139);
+            this.cmdVentasConsultas.Name = "cmdVentasConsultas";
+            this.cmdVentasConsultas.Size = new System.Drawing.Size(94, 46);
+            this.cmdVentasConsultas.TabIndex = 5;
+            this.cmdVentasConsultas.Text = "Ventas";
+            this.cmdVentasConsultas.UseVisualStyleBackColor = true;
+            this.cmdVentasConsultas.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // cmdVendedorConsulta
+            // 
+            this.cmdVendedorConsulta.Location = new System.Drawing.Point(32, 77);
+            this.cmdVendedorConsulta.Name = "cmdVendedorConsulta";
+            this.cmdVendedorConsulta.Size = new System.Drawing.Size(94, 46);
+            this.cmdVendedorConsulta.TabIndex = 4;
+            this.cmdVendedorConsulta.Text = "Vendedor";
+            this.cmdVendedorConsulta.UseVisualStyleBackColor = true;
+            // 
+            // cmdClienteConsulta
+            // 
+            this.cmdClienteConsulta.Location = new System.Drawing.Point(32, 15);
+            this.cmdClienteConsulta.Name = "cmdClienteConsulta";
+            this.cmdClienteConsulta.Size = new System.Drawing.Size(94, 46);
+            this.cmdClienteConsulta.TabIndex = 3;
+            this.cmdClienteConsulta.Text = "Cliente";
+            this.cmdClienteConsulta.UseVisualStyleBackColor = true;
             // 
             // frmPrincipal
             // 
@@ -113,6 +148,7 @@
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.tabMenu.ResumeLayout(false);
             this.tabRegistrar.ResumeLayout(false);
+            this.tabConsultar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -121,10 +157,13 @@
 
         private System.Windows.Forms.TabControl tabMenu;
         private System.Windows.Forms.TabPage tabRegistrar;
-        private System.Windows.Forms.Button Ventas;
+        private System.Windows.Forms.Button cmdVentas;
         private System.Windows.Forms.Button cmdVendedor;
         private System.Windows.Forms.Button cmdCliente;
         private System.Windows.Forms.TabPage tabConsultar;
+        private System.Windows.Forms.Button cmdVentasConsultas;
+        private System.Windows.Forms.Button cmdVendedorConsulta;
+        private System.Windows.Forms.Button cmdClienteConsulta;
     }
 }
 

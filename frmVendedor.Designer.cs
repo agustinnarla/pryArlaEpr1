@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.mrcDatos = new System.Windows.Forms.GroupBox();
-            this.mtxtVendedor = new System.Windows.Forms.MaskedTextBox();
             this.lblActivo = new System.Windows.Forms.Label();
             this.lblCobraComsion = new System.Windows.Forms.Label();
             this.nupComision = new System.Windows.Forms.NumericUpDown();
@@ -37,7 +36,7 @@
             this.cmdCargar = new System.Windows.Forms.Button();
             this.txtNombreVendedor = new System.Windows.Forms.TextBox();
             this.lblNombreVendedor = new System.Windows.Forms.Label();
-            this.lblVendedor = new System.Windows.Forms.Label();
+            this.cmdBorrar = new System.Windows.Forms.Button();
             this.mrcDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupComision)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupActivo)).BeginInit();
@@ -45,7 +44,7 @@
             // 
             // mrcDatos
             // 
-            this.mrcDatos.Controls.Add(this.mtxtVendedor);
+            this.mrcDatos.Controls.Add(this.cmdBorrar);
             this.mrcDatos.Controls.Add(this.lblActivo);
             this.mrcDatos.Controls.Add(this.lblCobraComsion);
             this.mrcDatos.Controls.Add(this.nupComision);
@@ -53,25 +52,16 @@
             this.mrcDatos.Controls.Add(this.cmdCargar);
             this.mrcDatos.Controls.Add(this.txtNombreVendedor);
             this.mrcDatos.Controls.Add(this.lblNombreVendedor);
-            this.mrcDatos.Controls.Add(this.lblVendedor);
             this.mrcDatos.Location = new System.Drawing.Point(12, 8);
             this.mrcDatos.Name = "mrcDatos";
-            this.mrcDatos.Size = new System.Drawing.Size(277, 173);
+            this.mrcDatos.Size = new System.Drawing.Size(277, 145);
             this.mrcDatos.TabIndex = 5;
             this.mrcDatos.TabStop = false;
-            // 
-            // mtxtVendedor
-            // 
-            this.mtxtVendedor.Location = new System.Drawing.Point(129, 23);
-            this.mtxtVendedor.Mask = "0000000000000000000";
-            this.mtxtVendedor.Name = "mtxtVendedor";
-            this.mtxtVendedor.Size = new System.Drawing.Size(142, 20);
-            this.mtxtVendedor.TabIndex = 9;
             // 
             // lblActivo
             // 
             this.lblActivo.AutoSize = true;
-            this.lblActivo.Location = new System.Drawing.Point(14, 93);
+            this.lblActivo.Location = new System.Drawing.Point(14, 51);
             this.lblActivo.Name = "lblActivo";
             this.lblActivo.Size = new System.Drawing.Size(37, 13);
             this.lblActivo.TabIndex = 8;
@@ -80,7 +70,7 @@
             // lblCobraComsion
             // 
             this.lblCobraComsion.AutoSize = true;
-            this.lblCobraComsion.Location = new System.Drawing.Point(14, 122);
+            this.lblCobraComsion.Location = new System.Drawing.Point(14, 83);
             this.lblCobraComsion.Name = "lblCobraComsion";
             this.lblCobraComsion.Size = new System.Drawing.Size(80, 13);
             this.lblCobraComsion.TabIndex = 7;
@@ -88,25 +78,47 @@
             // 
             // nupComision
             // 
-            this.nupComision.Location = new System.Drawing.Point(129, 115);
+            this.nupComision.InterceptArrowKeys = false;
+            this.nupComision.Location = new System.Drawing.Point(129, 76);
+            this.nupComision.Maximum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.nupComision.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
             this.nupComision.Name = "nupComision";
-            this.nupComision.Size = new System.Drawing.Size(142, 20);
+            this.nupComision.Size = new System.Drawing.Size(59, 20);
             this.nupComision.TabIndex = 6;
             this.nupComision.ValueChanged += new System.EventHandler(this.nupComision_ValueChanged);
             // 
             // nupActivo
             // 
-            this.nupActivo.Location = new System.Drawing.Point(129, 86);
+            this.nupActivo.InterceptArrowKeys = false;
+            this.nupActivo.Location = new System.Drawing.Point(129, 47);
+            this.nupActivo.Maximum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.nupActivo.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
             this.nupActivo.Name = "nupActivo";
-            this.nupActivo.Size = new System.Drawing.Size(142, 20);
+            this.nupActivo.Size = new System.Drawing.Size(59, 20);
             this.nupActivo.TabIndex = 5;
             this.nupActivo.ValueChanged += new System.EventHandler(this.nupActivo_ValueChanged);
             // 
             // cmdCargar
             // 
-            this.cmdCargar.Location = new System.Drawing.Point(160, 141);
+            this.cmdCargar.Location = new System.Drawing.Point(205, 116);
             this.cmdCargar.Name = "cmdCargar";
-            this.cmdCargar.Size = new System.Drawing.Size(111, 23);
+            this.cmdCargar.Size = new System.Drawing.Size(66, 23);
             this.cmdCargar.TabIndex = 4;
             this.cmdCargar.Text = "Cargar";
             this.cmdCargar.UseVisualStyleBackColor = true;
@@ -114,7 +126,7 @@
             // 
             // txtNombreVendedor
             // 
-            this.txtNombreVendedor.Location = new System.Drawing.Point(129, 57);
+            this.txtNombreVendedor.Location = new System.Drawing.Point(129, 18);
             this.txtNombreVendedor.Name = "txtNombreVendedor";
             this.txtNombreVendedor.Size = new System.Drawing.Size(142, 20);
             this.txtNombreVendedor.TabIndex = 3;
@@ -122,26 +134,27 @@
             // lblNombreVendedor
             // 
             this.lblNombreVendedor.AutoSize = true;
-            this.lblNombreVendedor.Location = new System.Drawing.Point(14, 58);
+            this.lblNombreVendedor.Location = new System.Drawing.Point(14, 19);
             this.lblNombreVendedor.Name = "lblNombreVendedor";
             this.lblNombreVendedor.Size = new System.Drawing.Size(110, 13);
             this.lblNombreVendedor.TabIndex = 1;
             this.lblNombreVendedor.Text = "Nombre del Vendedor";
             // 
-            // lblVendedor
+            // cmdBorrar
             // 
-            this.lblVendedor.AutoSize = true;
-            this.lblVendedor.Location = new System.Drawing.Point(14, 26);
-            this.lblVendedor.Name = "lblVendedor";
-            this.lblVendedor.Size = new System.Drawing.Size(53, 13);
-            this.lblVendedor.TabIndex = 0;
-            this.lblVendedor.Text = "Vendedor";
+            this.cmdBorrar.Location = new System.Drawing.Point(133, 116);
+            this.cmdBorrar.Name = "cmdBorrar";
+            this.cmdBorrar.Size = new System.Drawing.Size(66, 23);
+            this.cmdBorrar.TabIndex = 9;
+            this.cmdBorrar.Text = "Borrar";
+            this.cmdBorrar.UseVisualStyleBackColor = true;
+            this.cmdBorrar.Click += new System.EventHandler(this.cmdBorrar_Click);
             // 
             // frmVendedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 193);
+            this.ClientSize = new System.Drawing.Size(302, 163);
             this.Controls.Add(this.mrcDatos);
             this.Name = "frmVendedor";
             this.Text = "Vendedor";
@@ -160,11 +173,10 @@
         private System.Windows.Forms.Button cmdCargar;
         private System.Windows.Forms.TextBox txtNombreVendedor;
         private System.Windows.Forms.Label lblNombreVendedor;
-        private System.Windows.Forms.Label lblVendedor;
         private System.Windows.Forms.Label lblActivo;
         private System.Windows.Forms.Label lblCobraComsion;
         private System.Windows.Forms.NumericUpDown nupComision;
         private System.Windows.Forms.NumericUpDown nupActivo;
-        private System.Windows.Forms.MaskedTextBox mtxtVendedor;
+        private System.Windows.Forms.Button cmdBorrar;
     }
 }

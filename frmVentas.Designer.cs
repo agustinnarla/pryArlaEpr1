@@ -29,65 +29,64 @@
         private void InitializeComponent()
         {
             this.mrcDatos = new System.Windows.Forms.GroupBox();
+            this.cmdBorrar = new System.Windows.Forms.Button();
             this.lstVendedor = new System.Windows.Forms.ComboBox();
-            this.mtxtMonto = new System.Windows.Forms.MaskedTextBox();
             this.lblVendedor = new System.Windows.Forms.Label();
             this.lblMonto = new System.Windows.Forms.Label();
             this.lstCliente = new System.Windows.Forms.ComboBox();
             this.ftpFecha = new System.Windows.Forms.DateTimePicker();
-            this.mtxtNumeroFactura = new System.Windows.Forms.MaskedTextBox();
             this.lstFactura = new System.Windows.Forms.ComboBox();
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblCliente = new System.Windows.Forms.Label();
             this.cmdCargar = new System.Windows.Forms.Button();
-            this.lblNumeroFactura = new System.Windows.Forms.Label();
             this.lblFactura = new System.Windows.Forms.Label();
+            this.txtMonto = new System.Windows.Forms.TextBox();
             this.mrcDatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // mrcDatos
             // 
+            this.mrcDatos.Controls.Add(this.txtMonto);
+            this.mrcDatos.Controls.Add(this.cmdBorrar);
             this.mrcDatos.Controls.Add(this.lstVendedor);
-            this.mrcDatos.Controls.Add(this.mtxtMonto);
             this.mrcDatos.Controls.Add(this.lblVendedor);
             this.mrcDatos.Controls.Add(this.lblMonto);
             this.mrcDatos.Controls.Add(this.lstCliente);
             this.mrcDatos.Controls.Add(this.ftpFecha);
-            this.mrcDatos.Controls.Add(this.mtxtNumeroFactura);
             this.mrcDatos.Controls.Add(this.lstFactura);
             this.mrcDatos.Controls.Add(this.lblFecha);
             this.mrcDatos.Controls.Add(this.lblCliente);
             this.mrcDatos.Controls.Add(this.cmdCargar);
-            this.mrcDatos.Controls.Add(this.lblNumeroFactura);
             this.mrcDatos.Controls.Add(this.lblFactura);
-            this.mrcDatos.Location = new System.Drawing.Point(12, 12);
+            this.mrcDatos.Location = new System.Drawing.Point(6, 3);
             this.mrcDatos.Name = "mrcDatos";
-            this.mrcDatos.Size = new System.Drawing.Size(356, 233);
+            this.mrcDatos.Size = new System.Drawing.Size(349, 201);
             this.mrcDatos.TabIndex = 6;
             this.mrcDatos.TabStop = false;
+            // 
+            // cmdBorrar
+            // 
+            this.cmdBorrar.Location = new System.Drawing.Point(171, 171);
+            this.cmdBorrar.Name = "cmdBorrar";
+            this.cmdBorrar.Size = new System.Drawing.Size(83, 21);
+            this.cmdBorrar.TabIndex = 18;
+            this.cmdBorrar.Text = "Borrar";
+            this.cmdBorrar.UseVisualStyleBackColor = true;
             // 
             // lstVendedor
             // 
             this.lstVendedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.lstVendedor.FormattingEnabled = true;
-            this.lstVendedor.Location = new System.Drawing.Point(127, 144);
+            this.lstVendedor.Location = new System.Drawing.Point(127, 112);
             this.lstVendedor.Name = "lstVendedor";
             this.lstVendedor.Size = new System.Drawing.Size(83, 21);
             this.lstVendedor.TabIndex = 17;
             this.lstVendedor.SelectedIndexChanged += new System.EventHandler(this.lstVendedor_SelectedIndexChanged);
             // 
-            // mtxtMonto
-            // 
-            this.mtxtMonto.Location = new System.Drawing.Point(127, 175);
-            this.mtxtMonto.Mask = "$0000000000000";
-            this.mtxtMonto.Name = "mtxtMonto";
-            this.mtxtMonto.Size = new System.Drawing.Size(83, 20);
-            this.mtxtMonto.TabIndex = 16;
-            // 
             // lblVendedor
             // 
             this.lblVendedor.AutoSize = true;
-            this.lblVendedor.Location = new System.Drawing.Point(14, 153);
+            this.lblVendedor.Location = new System.Drawing.Point(14, 118);
             this.lblVendedor.Name = "lblVendedor";
             this.lblVendedor.Size = new System.Drawing.Size(53, 13);
             this.lblVendedor.TabIndex = 14;
@@ -96,7 +95,7 @@
             // lblMonto
             // 
             this.lblMonto.AutoSize = true;
-            this.lblMonto.Location = new System.Drawing.Point(14, 182);
+            this.lblMonto.Location = new System.Drawing.Point(14, 149);
             this.lblMonto.Name = "lblMonto";
             this.lblMonto.Size = new System.Drawing.Size(37, 13);
             this.lblMonto.TabIndex = 13;
@@ -106,7 +105,7 @@
             // 
             this.lstCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.lstCliente.FormattingEnabled = true;
-            this.lstCliente.Location = new System.Drawing.Point(127, 113);
+            this.lstCliente.Location = new System.Drawing.Point(127, 80);
             this.lstCliente.Name = "lstCliente";
             this.lstCliente.Size = new System.Drawing.Size(83, 21);
             this.lstCliente.TabIndex = 12;
@@ -114,18 +113,10 @@
             // 
             // ftpFecha
             // 
-            this.ftpFecha.Location = new System.Drawing.Point(127, 83);
+            this.ftpFecha.Location = new System.Drawing.Point(127, 49);
             this.ftpFecha.Name = "ftpFecha";
             this.ftpFecha.Size = new System.Drawing.Size(211, 20);
             this.ftpFecha.TabIndex = 11;
-            // 
-            // mtxtNumeroFactura
-            // 
-            this.mtxtNumeroFactura.Location = new System.Drawing.Point(127, 53);
-            this.mtxtNumeroFactura.Mask = "00000000000000";
-            this.mtxtNumeroFactura.Name = "mtxtNumeroFactura";
-            this.mtxtNumeroFactura.Size = new System.Drawing.Size(83, 20);
-            this.mtxtNumeroFactura.TabIndex = 10;
             // 
             // lstFactura
             // 
@@ -139,7 +130,7 @@
             "Factura E",
             "Factura T",
             ""});
-            this.lstFactura.Location = new System.Drawing.Point(127, 22);
+            this.lstFactura.Location = new System.Drawing.Point(127, 17);
             this.lstFactura.Name = "lstFactura";
             this.lstFactura.Size = new System.Drawing.Size(83, 21);
             this.lstFactura.TabIndex = 9;
@@ -148,7 +139,7 @@
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(14, 93);
+            this.lblFecha.Location = new System.Drawing.Point(14, 56);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(37, 13);
             this.lblFecha.TabIndex = 8;
@@ -157,7 +148,7 @@
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(14, 122);
+            this.lblCliente.Location = new System.Drawing.Point(14, 87);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(39, 13);
             this.lblCliente.TabIndex = 7;
@@ -165,7 +156,7 @@
             // 
             // cmdCargar
             // 
-            this.cmdCargar.Location = new System.Drawing.Point(127, 205);
+            this.cmdCargar.Location = new System.Drawing.Point(260, 171);
             this.cmdCargar.Name = "cmdCargar";
             this.cmdCargar.Size = new System.Drawing.Size(83, 21);
             this.cmdCargar.TabIndex = 4;
@@ -173,29 +164,27 @@
             this.cmdCargar.UseVisualStyleBackColor = true;
             this.cmdCargar.Click += new System.EventHandler(this.cmdCargar_Click);
             // 
-            // lblNumeroFactura
-            // 
-            this.lblNumeroFactura.AutoSize = true;
-            this.lblNumeroFactura.Location = new System.Drawing.Point(14, 58);
-            this.lblNumeroFactura.Name = "lblNumeroFactura";
-            this.lblNumeroFactura.Size = new System.Drawing.Size(109, 13);
-            this.lblNumeroFactura.TabIndex = 1;
-            this.lblNumeroFactura.Text = "Numero de la Factura";
-            // 
             // lblFactura
             // 
             this.lblFactura.AutoSize = true;
-            this.lblFactura.Location = new System.Drawing.Point(14, 30);
+            this.lblFactura.Location = new System.Drawing.Point(14, 25);
             this.lblFactura.Name = "lblFactura";
             this.lblFactura.Size = new System.Drawing.Size(43, 13);
             this.lblFactura.TabIndex = 0;
             this.lblFactura.Text = "Factura";
             // 
+            // txtMonto
+            // 
+            this.txtMonto.Location = new System.Drawing.Point(129, 145);
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(80, 20);
+            this.txtMonto.TabIndex = 19;
+            // 
             // frmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 250);
+            this.ClientSize = new System.Drawing.Size(362, 205);
             this.Controls.Add(this.mrcDatos);
             this.Name = "frmVentas";
             this.Text = "Ventas";
@@ -212,15 +201,14 @@
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.Button cmdCargar;
-        private System.Windows.Forms.Label lblNumeroFactura;
         private System.Windows.Forms.Label lblFactura;
         private System.Windows.Forms.ComboBox lstFactura;
-        private System.Windows.Forms.MaskedTextBox mtxtNumeroFactura;
         private System.Windows.Forms.DateTimePicker ftpFecha;
-        private System.Windows.Forms.MaskedTextBox mtxtMonto;
         private System.Windows.Forms.Label lblVendedor;
         private System.Windows.Forms.Label lblMonto;
         private System.Windows.Forms.ComboBox lstVendedor;
         public System.Windows.Forms.ComboBox lstCliente;
+        private System.Windows.Forms.Button cmdBorrar;
+        private System.Windows.Forms.TextBox txtMonto;
     }
 }

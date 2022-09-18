@@ -21,61 +21,53 @@ namespace pryArlaEPR
 
         private void cmdCargar_Click(object sender, EventArgs e)
         {
-            int numeroFactura, numeroVendedor, monto, cliente;
-            string mensaje, factura, fecha;
-
             //declaracion de variable 
-            bool bandera = false;
-            numeroFactura = Convert.ToInt32(mtxtMonto.Text);
+            int vendedor, monto, cliente;
+            string factura, fecha;
+            int numeroFactura = 1000;
+          
             fecha = ftpFecha.Text;
-            numeroVendedor = Convert.ToInt32(lstVendedor.Text);
-            numeroFactura = Convert.ToInt32(lstFactura.Text);
-            monto = Convert.ToInt32(mtxtMonto.Text);
+            vendedor = Convert.ToInt32(lstVendedor.Text);
+            monto = Convert.ToInt32(txtMonto.Text);
             factura = lstFactura.Text;
             cliente = Convert.ToInt32(lstCliente.Text);
            
             //creamos archivo 
-            StreamWriter swVentas = new StreamWriter("./Ventas.txt",true);
-            swVentas.Close();
+           
 
-            if (numeroFactura != 0 && numeroVendedor != 0 && fecha != "" && numeroFactura != 0 && monto != 0 && factura != "")
+            if ( cliente != -1 && vendedor != -1 && fecha != "" &&  monto != 0 && factura != "")
             {
-                mensaje = factura + "," + numeroFactura + "," + fecha + "," + cliente + "," + numeroVendedor + "," + monto;
-                char separador = Convert.ToChar(",");
-                StreamReader srVentas = new StreamReader("./Ventas.txt");
+                if (File.Exists("./Ventas.txt"))
+                {
+                    char separador = Convert.ToChar(",");
+                    StreamReader srVentas = new StreamReader("./Ventas.txt");
 
-                //mientras no sea final de archivo 
-                while (!srVentas.EndOfStream)
-                {
-                    string[] vecVentas = srVentas.ReadLine().Split(separador);
-                    int codigoVec = Convert.ToInt32(vecVentas[1]);
-                    if (numeroFactura == codigoVec)
+                    //mientras no sea final de archivo 
+                    while (!srVentas.EndOfStream)
                     {
-                        bandera = true;
-                        MessageBox.Show("Numero de factura repetido");
-                        numeroFactura = 0;
-                        lstFactura.Focus();
+                        string[] vecVentas = srVentas.ReadLine().Split(separador);
+                        int codigoVec = Convert.ToInt32(vecVentas[1]);
+                        numeroFactura = codigoVec + 1;
+                
                     }
+                    srVentas.Close();
                 }
-                srVentas.Close();
-                //Crear y copiar 
                 //evitar que se sobrescriba 
-                StreamWriter swVentas2 = File.AppendText("./Ventas.txt");
-                {
-                    if (bandera == false)
+                StreamWriter swVentas = File.AppendText("./Ventas.txt");
                     {
-                        swVentas2.WriteLine(mensaje);
-                        MessageBox.Show("Carga Realizada");
-                        mtxtMonto.Text = "";
-                        lstVendedor.Text = "";
-                        lstFactura.Text = "";
-                        mtxtMonto.Text = "";
-                        lstFactura.Text = "";
-                        lstCliente.Text = "";
-                        lstFactura.Focus();
+                        
+                            swVentas.WriteLine(factura + "," + numeroFactura + "," + fecha + "," + cliente + "," + vendedor + "," + monto );
+                            MessageBox.Show("Carga Realizada");
+                            lstVendedor.Text = "";
+                            lstFactura.Text = "";
+                            txtMonto.Text = "";
+                            lstCliente.Text = "";
+                            lstFactura.Focus();
+                        
+                        swVentas.Close();
                     }
-                    swVentas2.Close();
-                }
+
+               
 
             }
             else
@@ -87,11 +79,28 @@ namespace pryArlaEPR
 
         private void frmVentas_Load(object sender, EventArgs e)
         {
-            StreamReader srCliente = new StreamReader("./Clientes.txt");
             char separador = Convert.ToChar(",");
-            string[] vecCliente = srCliente.ReadLine().Split(separador);
-            int codigo = Convert.ToInt32(vecCliente[1]);
-           
+            if (File.Exists("./Clientes.txt"))
+            {
+                StreamReader srClientes = new StreamReader("./Clientes.txt");
+                while (!srClientes.EndOfStream)
+                {
+                    string[] vecClientes = srClientes.ReadLine().Split(separador);
+                    lstCliente.Items.Add(vecClientes[1]);
+                }
+                srClientes.Close();
+            }
+            if (File.Exists("./Vendedores.txt"))
+            {
+                StreamReader srVendedores = new StreamReader("./Vendedores.txt");
+                while (!srVendedores.EndOfStream)
+                {
+                    string[] vecVendedores = srVendedores.ReadLine().Split(separador);
+                    lstVendedor.Items.Add(vecVendedores[1]);
+                }
+                srVendedores.Close();
+            }
+
         }
 
         private void lstFactura_SelectedIndexChanged(object sender, EventArgs e)
@@ -101,13 +110,13 @@ namespace pryArlaEPR
 
         private void lstCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Numero de clientes que ya registramos anteriormente y no se van a poder crear ahi 
+           
             
         }
 
         private void lstVendedor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Numero de vendedor que ya registramos anteriormente y no se van a poder crear ahi 
+            
 
         }
     }

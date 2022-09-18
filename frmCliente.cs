@@ -18,63 +18,52 @@ namespace pryArlaEPR
             InitializeComponent();
         }
 
-        private void cmdCargar_Click(object sender, EventArgs e)
+        private void cmdCargar_Click_1(object sender, EventArgs e)
         {
-            
-            //variable utilizadas
-            int codigo;
-            string cliente, mensaje;
-            bool bandera = false;
-            codigo = Convert.ToInt32(nupCliente.Text);
+            //variable 
+            string cliente;
+            int codigoId = 1;
             cliente = txtNombreCliente.Text;
-            StreamWriter swCliente = new StreamWriter("./Clientes.txt", true);
-            swCliente.Close();
-            //si estos campos estan distinto de vacio que siga el proceso 
-            if (codigo != 0 && cliente != "")
+
+            ////si estos campos estan distinto de vacio que siga el proceso 
+            if (cliente != "")
             {
-                mensaje = cliente + "," + codigo;
-                char separador = Convert.ToChar(",");
-                //lectura del archivo 
-                StreamReader srClientes = new StreamReader("./Clientes.txt");
-                //distinto a final de archivo 
-                while (!srClientes.EndOfStream)
+                if (File.Exists("./Clientes.txt"))
                 {
-                    string[] vecClientes = srClientes.ReadLine().Split(separador);
-                        string vecID = vecClientes[0];
-                        codigoId = Convert.ToInt32(vecID) + 1;
 
-                    //confirmo si el numero no se repita a partir del vector y su posiciòn
-                    if (codigo == codigoVec)
+                    char separador = Convert.ToChar(",");
+                    //    //lectura del archivo 
+                    StreamReader srClientes = new StreamReader("./Clientes.txt");
+                    //    //distinto a final de archivo 
+                    while (!srClientes.EndOfStream)
                     {
-                        bandera = true;
-                        MessageBox.Show("Numero repetido");
-                        nupCliente.Value = 0;
-                        nupCliente.Focus();
+                        //asignacion de numero del cliente automatica 
+                        string[] vecClientes = srClientes.ReadLine().Split(separador);
+                        int vecID = Convert.ToInt32(vecClientes[1]);
+                        codigoId = vecID + 1;
+
                     }
+                    srClientes.Close();
                 }
-                srClientes.Close();
-                //si la bandera es falsa q se cree el archivo 
-                    StreamWriter swCliente = File.AppendText("./Clientes.txt");
-
-                    swCliente.WriteLine(mensaje);
-                        MessageBox.Show("Carga Realizada");
-                        nupCliente.Value = 0;
-                        txtNombreCliente.Text = "";
-
-                    swCliente.Close();
-
-
-                }
-                    }
-                swCliente2.Close();
-       
+                //evitar que se sobrescriba 
+                StreamWriter swCliente = File.AppendText("./Clientes.txt");
+                swCliente.WriteLine(cliente + "," + codigoId);
+                MessageBox.Show("Carga Realizada");
+                txtNombreCliente.Text = "";
+                swCliente.Close();
             }
             else
             {
                 MessageBox.Show("Complete con los datos, por favor ");
 
             }
+        }
 
+        private void cmdBorrar_Click(object sender, EventArgs e)
+        {
+            //eliminar archivo
+            File.Delete("./Clientes.txt");
+            MessageBox.Show("Archivo Eliminado");
         }
     }
 }
