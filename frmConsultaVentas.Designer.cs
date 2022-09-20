@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.cmdConsultar = new System.Windows.Forms.Button();
-            this.grlVendedor = new System.Windows.Forms.DataGridView();
+            this.grlVentas = new System.Windows.Forms.DataGridView();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre_del_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Vendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.grlVendedor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grlVentas)).BeginInit();
             this.SuspendLayout();
             // 
             // cmdConsultar
@@ -47,21 +47,22 @@
             this.cmdConsultar.TabIndex = 5;
             this.cmdConsultar.Text = "Consultar";
             this.cmdConsultar.UseVisualStyleBackColor = true;
+            this.cmdConsultar.Click += new System.EventHandler(this.cmdConsultar_Click);
             // 
-            // grlVendedor
+            // grlVentas
             // 
-            this.grlVendedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grlVendedor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grlVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grlVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cliente,
             this.Nombre_del_Cliente,
             this.Activo,
             this.Comision,
             this.Vendedor,
             this.Monto});
-            this.grlVendedor.Location = new System.Drawing.Point(12, 12);
-            this.grlVendedor.Name = "grlVendedor";
-            this.grlVendedor.Size = new System.Drawing.Size(675, 206);
-            this.grlVendedor.TabIndex = 4;
+            this.grlVentas.Location = new System.Drawing.Point(12, 12);
+            this.grlVentas.Name = "grlVentas";
+            this.grlVentas.Size = new System.Drawing.Size(675, 206);
+            this.grlVentas.TabIndex = 4;
             // 
             // Cliente
             // 
@@ -104,10 +105,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 253);
             this.Controls.Add(this.cmdConsultar);
-            this.Controls.Add(this.grlVendedor);
+            this.Controls.Add(this.grlVentas);
             this.Name = "frmConsultaVentas";
             this.Text = "Consulta Ventas";
-            ((System.ComponentModel.ISupportInitialize)(this.grlVendedor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grlVentas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -115,7 +116,7 @@
         #endregion
 
         private System.Windows.Forms.Button cmdConsultar;
-        private System.Windows.Forms.DataGridView grlVendedor;
+        private System.Windows.Forms.DataGridView grlVentas;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_del_Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Activo;

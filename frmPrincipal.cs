@@ -42,7 +42,20 @@ namespace pryArlaEPR
 
         private void button1_Click(object sender, EventArgs e)
         {
+            frmConsultaVentas frmConsultaVentas = new frmConsultaVentas();
+            frmConsultaVentas.ShowDialog();
+        }
 
+        private void cmdClienteConsulta_Click(object sender, EventArgs e)
+        {
+            frmConsultaCliente frmConsultaCliente = new frmConsultaCliente();
+            frmConsultaCliente.ShowDialog();
+        }
+
+        private void cmdVendedorConsulta_Click(object sender, EventArgs e)
+        {
+            frmConsultaVendedor frmConsultaVendedor = new frmConsultaVendedor();
+            frmConsultaVendedor.ShowDialog();
         }
     }
 }

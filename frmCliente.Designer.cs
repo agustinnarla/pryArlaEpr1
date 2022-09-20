@@ -31,8 +31,8 @@
             this.lblNombreCliente = new System.Windows.Forms.Label();
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.mrcDatos = new System.Windows.Forms.GroupBox();
-            this.cmdCargar = new System.Windows.Forms.Button();
             this.cmdBorrar = new System.Windows.Forms.Button();
+            this.cmdCargar = new System.Windows.Forms.Button();
             this.mrcDatos.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,19 +60,9 @@
             this.mrcDatos.Controls.Add(this.lblNombreCliente);
             this.mrcDatos.Location = new System.Drawing.Point(12, 12);
             this.mrcDatos.Name = "mrcDatos";
-            this.mrcDatos.Size = new System.Drawing.Size(273, 116);
+            this.mrcDatos.Size = new System.Drawing.Size(276, 101);
             this.mrcDatos.TabIndex = 4;
             this.mrcDatos.TabStop = false;
-            // 
-            // cmdCargar
-            // 
-            this.cmdCargar.Location = new System.Drawing.Point(153, 58);
-            this.cmdCargar.Name = "cmdCargar";
-            this.cmdCargar.Size = new System.Drawing.Size(100, 29);
-            this.cmdCargar.TabIndex = 4;
-            this.cmdCargar.Text = "Cargar";
-            this.cmdCargar.UseVisualStyleBackColor = true;
-            this.cmdCargar.Click += new System.EventHandler(this.cmdCargar_Click_1);
             // 
             // cmdBorrar
             // 
@@ -84,11 +74,21 @@
             this.cmdBorrar.UseVisualStyleBackColor = true;
             this.cmdBorrar.Click += new System.EventHandler(this.cmdBorrar_Click);
             // 
+            // cmdCargar
+            // 
+            this.cmdCargar.Location = new System.Drawing.Point(153, 58);
+            this.cmdCargar.Name = "cmdCargar";
+            this.cmdCargar.Size = new System.Drawing.Size(100, 29);
+            this.cmdCargar.TabIndex = 4;
+            this.cmdCargar.Text = "Cargar";
+            this.cmdCargar.UseVisualStyleBackColor = true;
+            this.cmdCargar.Click += new System.EventHandler(this.cmdCargar_Click_1);
+            // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 142);
+            this.ClientSize = new System.Drawing.Size(296, 122);
             this.Controls.Add(this.mrcDatos);
             this.Name = "frmCliente";
             this.Text = "Cliente";

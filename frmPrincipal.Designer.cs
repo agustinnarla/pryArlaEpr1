@@ -126,6 +126,7 @@
             this.cmdVendedorConsulta.TabIndex = 4;
             this.cmdVendedorConsulta.Text = "Vendedor";
             this.cmdVendedorConsulta.UseVisualStyleBackColor = true;
+            this.cmdVendedorConsulta.Click += new System.EventHandler(this.cmdVendedorConsulta_Click);
             // 
             // cmdClienteConsulta
             // 
@@ -135,6 +136,7 @@
             this.cmdClienteConsulta.TabIndex = 3;
             this.cmdClienteConsulta.Text = "Cliente";
             this.cmdClienteConsulta.UseVisualStyleBackColor = true;
+            this.cmdClienteConsulta.Click += new System.EventHandler(this.cmdClienteConsulta_Click);
             // 
             // frmPrincipal
             // 

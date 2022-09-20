@@ -29,31 +29,24 @@
         private void InitializeComponent()
         {
             this.grlCliente = new System.Windows.Forms.DataGridView();
-            this.cmdConsultar = new System.Windows.Forms.Button();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre_del_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmdConsultar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grlCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // grlCliente
             // 
+            this.grlCliente.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.grlCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grlCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cliente,
             this.Nombre_del_Cliente});
+            this.grlCliente.Enabled = false;
             this.grlCliente.Location = new System.Drawing.Point(12, 12);
             this.grlCliente.Name = "grlCliente";
             this.grlCliente.Size = new System.Drawing.Size(413, 206);
             this.grlCliente.TabIndex = 0;
-            // 
-            // cmdConsultar
-            // 
-            this.cmdConsultar.Location = new System.Drawing.Point(362, 224);
-            this.cmdConsultar.Name = "cmdConsultar";
-            this.cmdConsultar.Size = new System.Drawing.Size(63, 25);
-            this.cmdConsultar.TabIndex = 1;
-            this.cmdConsultar.Text = "Consultar";
-            this.cmdConsultar.UseVisualStyleBackColor = true;
             // 
             // Cliente
             // 
@@ -66,6 +59,16 @@
             this.Nombre_del_Cliente.HeaderText = "Nombre Del Cliente";
             this.Nombre_del_Cliente.Name = "Nombre_del_Cliente";
             this.Nombre_del_Cliente.Width = 200;
+            // 
+            // cmdConsultar
+            // 
+            this.cmdConsultar.Location = new System.Drawing.Point(362, 224);
+            this.cmdConsultar.Name = "cmdConsultar";
+            this.cmdConsultar.Size = new System.Drawing.Size(63, 25);
+            this.cmdConsultar.TabIndex = 1;
+            this.cmdConsultar.Text = "Consultar";
+            this.cmdConsultar.UseVisualStyleBackColor = true;
+            this.cmdConsultar.Click += new System.EventHandler(this.cmdConsultar_Click);
             // 
             // frmConsultaCliente
             // 

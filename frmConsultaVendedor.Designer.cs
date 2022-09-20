@@ -45,6 +45,7 @@
             this.cmdConsultar.TabIndex = 3;
             this.cmdConsultar.Text = "Consultar";
             this.cmdConsultar.UseVisualStyleBackColor = true;
+            this.cmdConsultar.Click += new System.EventHandler(this.cmdConsultar_Click);
             // 
             // grlVendedor
             // 

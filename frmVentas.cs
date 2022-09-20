@@ -22,20 +22,20 @@ namespace pryArlaEPR
         private void cmdCargar_Click(object sender, EventArgs e)
         {
             //declaracion de variable 
-            int vendedor, monto, cliente;
-            string factura, fecha;
+            int vendedor, cliente;
+            string factura, fecha, monto ;
             int numeroFactura = 1000;
           
             fecha = ftpFecha.Text;
             vendedor = Convert.ToInt32(lstVendedor.Text);
-            monto = Convert.ToInt32(txtMonto.Text);
+            monto = txtMonto.Text;
             factura = lstFactura.Text;
             cliente = Convert.ToInt32(lstCliente.Text);
            
             //creamos archivo 
            
 
-            if ( cliente != -1 && vendedor != -1 && fecha != "" &&  monto != 0 && factura != "")
+            if ( cliente != -1 && vendedor != -1 && fecha != "" &&  monto != "" && factura != "")
             {
                 if (File.Exists("./Ventas.txt"))
                 {
@@ -45,6 +45,7 @@ namespace pryArlaEPR
                     //mientras no sea final de archivo 
                     while (!srVentas.EndOfStream)
                     {
+                        //codigo aleatorio
                         string[] vecVentas = srVentas.ReadLine().Split(separador);
                         int codigoVec = Convert.ToInt32(vecVentas[1]);
                         numeroFactura = codigoVec + 1;
@@ -62,9 +63,8 @@ namespace pryArlaEPR
                             lstFactura.Text = "";
                             txtMonto.Text = "";
                             lstCliente.Text = "";
-                            lstFactura.Focus();
-                        
-                        swVentas.Close();
+                            lstFactura.Focus();  
+                            swVentas.Close();
                     }
 
                
@@ -87,6 +87,7 @@ namespace pryArlaEPR
                 {
                     string[] vecClientes = srClientes.ReadLine().Split(separador);
                     lstCliente.Items.Add(vecClientes[1]);
+
                 }
                 srClientes.Close();
             }
@@ -118,6 +119,13 @@ namespace pryArlaEPR
         {
             
 
+        }
+
+        private void cmdBorrar_Click(object sender, EventArgs e)
+        {
+            //eliminar archivo
+            File.Delete("./Ventas.txt");
+            MessageBox.Show("Archivo Eliminado");
         }
     }
 }
