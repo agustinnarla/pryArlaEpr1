@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+
 
 namespace pryArlaEPR
 {
@@ -23,12 +25,12 @@ namespace pryArlaEPR
         {
             //declaracion de variable 
             int vendedor, cliente;
-            string factura, fecha, monto ;
+            string factura, fecha, monto;
             int numeroFactura = 1000;
           
             fecha = ftpFecha.Text;
             vendedor = Convert.ToInt32(lstVendedor.Text);
-            monto = txtMonto.Text;
+            monto = Convert.ToString(txtMonto.Text);
             factura = lstFactura.Text;
             cliente = Convert.ToInt32(lstCliente.Text);
            
@@ -39,7 +41,7 @@ namespace pryArlaEPR
             {
                 if (File.Exists("./Ventas.txt"))
                 {
-                    char separador = Convert.ToChar(",");
+                    char separador = Convert.ToChar(";");
                     StreamReader srVentas = new StreamReader("./Ventas.txt");
 
                     //mientras no sea final de archivo 
@@ -57,7 +59,7 @@ namespace pryArlaEPR
                 StreamWriter swVentas = File.AppendText("./Ventas.txt");
                     {
                         
-                            swVentas.WriteLine(factura + "," + numeroFactura + "," + fecha + "," + cliente + "," + vendedor + "," + monto );
+                            swVentas.WriteLine(factura + ";" + numeroFactura + ";" + fecha + ";" + cliente + ";" + vendedor + ";" + monto );
                             MessageBox.Show("Carga Realizada");
                             lstVendedor.Text = "";
                             lstFactura.Text = "";
@@ -66,8 +68,6 @@ namespace pryArlaEPR
                             lstFactura.Focus();  
                             swVentas.Close();
                     }
-
-               
 
             }
             else
@@ -127,5 +127,11 @@ namespace pryArlaEPR
             File.Delete("./Ventas.txt");
             MessageBox.Show("Archivo Eliminado");
         }
+
+        private void txtMonto_TextChanged(object sender, EventArgs e) 
+        {
+           
+        }
+       
     }
 }

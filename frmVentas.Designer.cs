@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.mrcDatos = new System.Windows.Forms.GroupBox();
-            this.txtMonto = new System.Windows.Forms.TextBox();
             this.cmdBorrar = new System.Windows.Forms.Button();
             this.lstVendedor = new System.Windows.Forms.ComboBox();
             this.lblVendedor = new System.Windows.Forms.Label();
@@ -41,6 +40,7 @@
             this.lblCliente = new System.Windows.Forms.Label();
             this.cmdCargar = new System.Windows.Forms.Button();
             this.lblFactura = new System.Windows.Forms.Label();
+            this.txtMonto = new System.Windows.Forms.TextBox();
             this.mrcDatos.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,16 +64,9 @@
             this.mrcDatos.TabIndex = 6;
             this.mrcDatos.TabStop = false;
             // 
-            // txtMonto
-            // 
-            this.txtMonto.Location = new System.Drawing.Point(129, 145);
-            this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(80, 20);
-            this.txtMonto.TabIndex = 19;
-            // 
             // cmdBorrar
             // 
-            this.cmdBorrar.Location = new System.Drawing.Point(171, 171);
+            this.cmdBorrar.Location = new System.Drawing.Point(171, 174);
             this.cmdBorrar.Name = "cmdBorrar";
             this.cmdBorrar.Size = new System.Drawing.Size(83, 21);
             this.cmdBorrar.TabIndex = 18;
@@ -164,7 +157,7 @@
             // 
             // cmdCargar
             // 
-            this.cmdCargar.Location = new System.Drawing.Point(260, 171);
+            this.cmdCargar.Location = new System.Drawing.Point(260, 174);
             this.cmdCargar.Name = "cmdCargar";
             this.cmdCargar.Size = new System.Drawing.Size(83, 21);
             this.cmdCargar.TabIndex = 4;
@@ -180,6 +173,14 @@
             this.lblFactura.Size = new System.Drawing.Size(43, 13);
             this.lblFactura.TabIndex = 0;
             this.lblFactura.Text = "Factura";
+            // 
+            // txtMonto
+            // 
+            this.txtMonto.Location = new System.Drawing.Point(127, 146);
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(83, 20);
+            this.txtMonto.TabIndex = 19;
+            this.txtMonto.TextChanged += new System.EventHandler(this.txtMonto_TextChanged);
             // 
             // frmVentas
             // 

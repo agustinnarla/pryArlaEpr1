@@ -22,7 +22,7 @@ namespace pryArlaEPR
         {
             if (File.Exists("./Ventas.txt"))
             {
-                char separador = Convert.ToChar(",");
+                char separador = Convert.ToChar(";");
                 StreamReader srConsultaVentas = new StreamReader("./Ventas.txt");
                 while (!srConsultaVentas.EndOfStream)
                 {
