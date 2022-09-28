@@ -61,10 +61,10 @@ namespace pryArlaEPR
                         
                             swVentas.WriteLine(factura + ";" + numeroFactura + ";" + fecha + ";" + cliente + ";" + vendedor + ";" + monto );
                             MessageBox.Show("Carga Realizada");
-                            lstVendedor.Text = "";
+                            lstVendedor.SelectedIndex = -1;
                             lstFactura.Text = "";
                             txtMonto.Text = "";
-                            lstCliente.Text = "";
+                           lstCliente.SelectedIndex = -1;
                             lstFactura.Focus();  
                             swVentas.Close();
                     }
